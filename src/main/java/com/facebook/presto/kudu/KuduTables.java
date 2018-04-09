@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-package com.presto.kudu;
+package com.facebook.presto.kudu;
 
 import com.facebook.presto.spi.ColumnMetadata;
 import com.facebook.presto.spi.SchemaTableName;
@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static com.facebook.presto.kudu.KuduMetadata.PRESTO_KUDU_SCHEMA;
 import static com.facebook.presto.spi.type.BigintType.BIGINT;
 import static com.facebook.presto.spi.type.BooleanType.BOOLEAN;
 import static com.facebook.presto.spi.type.DoubleType.DOUBLE;
@@ -35,14 +36,13 @@ import static com.facebook.presto.spi.type.IntegerType.INTEGER;
 import static com.facebook.presto.spi.type.SmallintType.SMALLINT;
 import static com.facebook.presto.spi.type.TinyintType.TINYINT;
 import static com.facebook.presto.spi.type.VarcharType.createUnboundedVarcharType;
-import static com.presto.kudu.KuduMetadata.PRESTO_KUDU_SCHEMA;
 
 public class KuduTables
 {
     public static final Logger logger = Logger.get(KuduTables.class);
 
     //    private Map<SchemaTableName, KuduTableHandle> tables;
-    private KuduClientManager kuduClientManager = null;
+    private KuduClientManager kuduClientManager;
 
     @Inject
     public KuduTables(KuduClientManager kuduClientManager)

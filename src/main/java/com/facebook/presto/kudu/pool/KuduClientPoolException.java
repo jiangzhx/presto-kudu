@@ -1,4 +1,4 @@
-package com.presto.kudu.pool;
+package com.facebook.presto.kudu.pool;
 
 public class KuduClientPoolException
         extends RuntimeException

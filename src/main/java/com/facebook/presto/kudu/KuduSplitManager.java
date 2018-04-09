@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.presto.kudu;
+package com.facebook.presto.kudu;
 
 import com.facebook.presto.spi.ConnectorSession;
 import com.facebook.presto.spi.ConnectorSplit;
@@ -47,9 +47,9 @@ public class KuduSplitManager
     }
 
     @Override
-    public ConnectorSplitSource getSplits(ConnectorTransactionHandle transactionHandle, ConnectorSession session, ConnectorTableLayoutHandle layout)
+    public ConnectorSplitSource getSplits(ConnectorTransactionHandle connectorTransactionHandle, ConnectorSession connectorSession, ConnectorTableLayoutHandle connectorTableLayoutHandle, SplitSchedulingStrategy splitSchedulingStrategy)
     {
-        KuduTableLayoutHandle layoutHandle = Types.checkType(layout, KuduTableLayoutHandle.class, "layout");
+        KuduTableLayoutHandle layoutHandle = Types.checkType(connectorTableLayoutHandle, KuduTableLayoutHandle.class, "layout");
         KuduTableHandle tableHandle = layoutHandle.getTable();
         KuduClient kuduClient = kuduClientManager.getClient();
 

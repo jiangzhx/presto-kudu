@@ -5,16 +5,16 @@
     <parent>
         <artifactId>presto-root</artifactId>
         <groupId>com.facebook.presto</groupId>
-        <version>0.170</version>
+        <version>0.195</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.presto</groupId>
+    <groupId>com.facebook.presto</groupId>
     <artifactId>presto-kudu</artifactId>
     <packaging>presto-plugin</packaging>
 
     <properties>
-        <air.main.basedir>${project.parent.basedir}</air.main.basedir>
+        <air.main.basedir>/Users/sylar/Documents/workspace/opensource/presto</air.main.basedir>
         <air.check.skip-license>true</air.check.skip-license>
     </properties>
 
@@ -76,8 +76,8 @@
         <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>javax.annotation-api</artifactId>
-            <scope>test</scope>
-            <version>1.2</version>
+            <version>1.3.1</version>
+            <scope>compile</scope>
         </dependency>
 
         <!-- Presto SPI -->
@@ -90,6 +90,12 @@
         <dependency>
             <groupId>io.airlift</groupId>
             <artifactId>slice</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.airlift</groupId>
+            <artifactId>units</artifactId>
             <scope>provided</scope>
         </dependency>
 
@@ -118,11 +124,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>io.airlift</groupId>
-            <artifactId>units</artifactId>
-            <scope>provided</scope>
-        </dependency>
 
     </dependencies>
 

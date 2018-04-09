@@ -11,21 +11,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.presto.kudu;
+package com.facebook.presto.kudu;
 
-import com.facebook.presto.spi.Plugin;
-import com.facebook.presto.spi.connector.ConnectorFactory;
-import com.google.common.collect.ImmutableList;
+import io.airlift.configuration.Config;
+import io.airlift.configuration.ConfigDescription;
 
-/**
- * Presto plugin to use Redis as a data source.
- */
-public class KuduPlugin
-        implements Plugin
+public class KuduConfig
 {
-    @Override
-    public Iterable<ConnectorFactory> getConnectorFactories()
+    private String kuduMaster;
+
+    public String getKuduMaster()
     {
-        return ImmutableList.of(new KuduConnectorFactory());
+        return kuduMaster;
+    }
+
+    @Config("kudu.master")
+    @ConfigDescription("IP:PORT where kudu master connect")
+    public KuduConfig setKuduMaster(String kuduMaster)
+    {
+        this.kuduMaster = kuduMaster;
+        return this;
     }
 }

@@ -11,25 +11,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.presto.kudu;
+package com.facebook.presto.kudu;
 
-import io.airlift.configuration.Config;
-import io.airlift.configuration.ConfigDescription;
+import com.facebook.presto.spi.connector.ConnectorTransactionHandle;
 
-public class KuduConfig
+public enum KuduTransactionHandle
+        implements ConnectorTransactionHandle
 {
-    private String kuduMaster;
-
-    public String getKuduMaster()
-    {
-        return kuduMaster;
-    }
-
-    @Config("kudu.master")
-    @ConfigDescription("IP:PORT where kudu master connect")
-    public KuduConfig setKuduMaster(String kuduMaster)
-    {
-        this.kuduMaster = kuduMaster;
-        return this;
-    }
+    INSTANCE
 }

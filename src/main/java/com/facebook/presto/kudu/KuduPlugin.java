@@ -11,12 +11,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.presto.kudu;
+package com.facebook.presto.kudu;
 
-import com.facebook.presto.spi.connector.ConnectorTransactionHandle;
+import com.facebook.presto.spi.Plugin;
+import com.facebook.presto.spi.connector.ConnectorFactory;
+import com.google.common.collect.ImmutableList;
 
-public enum KuduTransactionHandle
-        implements ConnectorTransactionHandle
+/**
+ * Presto plugin to use Redis as a data source.
+ */
+public class KuduPlugin
+        implements Plugin
 {
-    INSTANCE
+    @Override
+    public Iterable<ConnectorFactory> getConnectorFactories()
+    {
+        return ImmutableList.of(new KuduConnectorFactory());
+    }
 }

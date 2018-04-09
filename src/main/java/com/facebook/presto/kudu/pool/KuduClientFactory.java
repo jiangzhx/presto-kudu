@@ -1,4 +1,4 @@
-package com.presto.kudu.pool;
+package com.facebook.presto.kudu.pool;
 
 import org.apache.commons.pool2.PooledObject;
 import org.apache.commons.pool2.PooledObjectFactory;

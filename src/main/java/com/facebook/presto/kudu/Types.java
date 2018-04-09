@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.presto.kudu;
+package com.facebook.presto.kudu;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static java.lang.String.format;

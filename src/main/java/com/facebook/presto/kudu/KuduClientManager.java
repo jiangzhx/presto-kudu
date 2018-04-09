@@ -11,10 +11,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.presto.kudu;
+package com.facebook.presto.kudu;
 
+import com.facebook.presto.kudu.pool.KuduClientPool;
 import com.facebook.presto.spi.NodeManager;
-import com.presto.kudu.pool.KuduClientPool;
 import io.airlift.log.Logger;
 import org.apache.kudu.client.KuduClient;
 import org.apache.kudu.client.KuduException;

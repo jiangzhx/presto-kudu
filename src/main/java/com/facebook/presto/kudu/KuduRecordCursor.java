@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-package com.presto.kudu;
+package com.facebook.presto.kudu;
 
 import com.facebook.presto.spi.RecordCursor;
 import com.facebook.presto.spi.SchemaTableName;
@@ -65,7 +65,7 @@ public class KuduRecordCursor
 
         List<KuduScanToken> tokends = kuduClientManager
                 .newScanTokenBuilder(this.kuduClient, tableName.getTableName())
-                .setProjectedColumnNames(columns.stream().map(column->column.getColumnName()).collect(Collectors.toList()))
+                .setProjectedColumnNames(columns.stream().map(column -> column.getColumnName()).collect(Collectors.toList()))
                 .build();
         try {
             this.kuduScanner = tokends.get(kuduTokenId).intoScanner(this.kuduClient);
@@ -73,12 +73,6 @@ public class KuduRecordCursor
         catch (Exception e) {
             logger.error(e, e.getMessage());
         }
-    }
-
-    @Override
-    public long getTotalBytes()
-    {
-        return 0;
     }
 
     @Override
